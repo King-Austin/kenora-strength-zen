@@ -99,16 +99,15 @@ const MembershipPlans = () => {
           {plans.map((plan) => (
             <Card
               key={plan.name}
-              className={`relative flex flex-col border-2 transition-smooth hover:shadow-elegant hover:-translate-y-2 ${
-                plan.popular ? "border-gold" : "border-border"
-              }`}
+              className={`relative flex flex-col border-2 transition-smooth hover:shadow-elegant hover:-translate-y-2 ${plan.popular ? "border-gold" : "border-border"
+                }`}
             >
               {plan.popular && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gold text-foreground px-4 py-1 rounded-full text-sm font-bold">
                   POPULAR
                 </div>
               )}
-              
+
               <CardHeader>
                 <CardTitle className="text-xl font-bold">{plan.name}</CardTitle>
                 <div className="mt-3">
@@ -133,11 +132,10 @@ const MembershipPlans = () => {
               <CardFooter>
                 <Button
                   asChild
-                  className={`w-full font-semibold ${
-                    plan.popular
+                  className={`w-full font-semibold ${plan.popular
                       ? "bg-gold hover:bg-gold-dark text-foreground"
                       : "bg-primary hover:bg-primary/90"
-                  }`}
+                    }`}
                 >
                   <a href={plan.paystackLink} target="_blank" rel="noopener noreferrer">
                     Subscribe Now
