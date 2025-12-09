@@ -1,4 +1,4 @@
-import { Instagram, Facebook } from "lucide-react";
+import { Instagram, Facebook, Phone } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -32,6 +32,15 @@ const Footer = () => {
                 aria-label="Facebook"
               >
                 <Facebook size={20} />
+              </a>
+              <a
+                href="https://wa.me/2348166068162"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-primary-foreground/10 hover:bg-gold transition-smooth flex items-center justify-center"
+                aria-label="WhatsApp"
+              >
+                <Phone size={20} />
               </a>
             </div>
           </div>
@@ -69,6 +78,11 @@ const Footer = () => {
               <p>Agu Awka, Anambra State</p>
               <p>Nigeria</p>
               <p className="mt-4">
+                <a href="tel:+2348166068162" className="hover:text-gold transition-smooth">
+                  +234 816 606 8162
+                </a>
+              </p>
+              <p>
                 <a href="mailto:info@kenorafitness.com" className="hover:text-gold transition-smooth">
                   info@kenorafitness.com
                 </a>

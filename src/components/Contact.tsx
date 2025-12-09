@@ -32,12 +32,14 @@ const Contact = () => {
     {
       icon: Phone,
       title: "Phone",
-      content: "+234 XXX XXX XXXX",
+      content: "+234 816 606 8162",
+      href: "tel:+2348166068162",
     },
     {
       icon: Mail,
       title: "Email",
       content: "info@kenorafitness.com",
+      href: "mailto:info@kenorafitness.com",
     },
   ];
 

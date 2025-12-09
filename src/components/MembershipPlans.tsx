@@ -1,63 +1,84 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Check } from "lucide-react";
 
 const plans = [
   {
-    name: "Single Plan",
-    price: "₦20,000",
-    description: "Perfect for individuals",
+    name: "Single Package",
+    registrationFee: "₦45,000",
+    description: "Registration fee for the first month",
     features: [
-      "Full gym access",
-      "Spa services included",
-      "Personal locker",
-      "Free fitness assessment",
-      "Access to all group classes",
+      { duration: "Daily (one session)", price: "₦5,000" },
+      { duration: "Weekly", price: "₦25,000" },
+      { duration: "Monthly", price: "₦30,000" },
+      { duration: "3 Months", price: "₦81,000" },
+      { duration: "6 Months", price: "₦153,000" },
+      { duration: "12 Months", price: "₦276,000" },
     ],
-    paystackLink: "#", // Replace with actual Paystack link
+    paystackLink: "#",
     popular: false,
   },
   {
-    name: "Couple Plan",
-    price: "₦36,000",
-    description: "For you and your partner",
+    name: "Couples Package",
+    registrationFee: "₦40,000",
+    description: "Registration fee each for the first month",
     features: [
-      "2-person full access",
-      "All Single Plan benefits",
-      "Free weekend sauna",
-      "Couples workout sessions",
-      "Priority booking",
+      { duration: "Daily (one session)", price: "₦9,000" },
+      { duration: "Weekly", price: "₦44,000" },
+      { duration: "Monthly", price: "₦54,000" },
+      { duration: "3 Months", price: "₦147,000" },
+      { duration: "6 Months", price: "₦288,000" },
+      { duration: "12 Months", price: "₦552,000" },
     ],
-    paystackLink: "#", // Replace with actual Paystack link
+    paystackLink: "#",
     popular: true,
   },
   {
-    name: "Family Plan",
-    price: "₦72,000",
-    description: "Family of 4",
+    name: "Family of Four (4)",
+    registrationFee: "₦38,000",
+    description: "Registration fee each for the first month",
     features: [
-      "4-person full access",
-      "All Couple Plan benefits",
-      "2 free guest passes/month",
-      "Family wellness programs",
-      "Nutritional consultation",
+      { duration: "Daily", price: "₦16,000" },
+      { duration: "Weekly", price: "₦88,000" },
+      { duration: "Monthly", price: "₦108,000" },
+      { duration: "3 Months", price: "₦300,000" },
+      { duration: "6 Months", price: "₦588,000" },
+      { duration: "12 Months", price: "₦1,128,000" },
     ],
-    paystackLink: "#", // Replace with actual Paystack link
+    paystackLink: "#",
     popular: false,
   },
   {
-    name: "Group Plan",
-    price: "₦175,000",
-    description: "Group of 10",
+    name: "Group of Ten (10)",
+    registrationFee: "₦37,000",
+    description: "Registration fee each for the first month",
     features: [
-      "10-person full access",
-      "All Family Plan benefits",
-      "Dedicated group sessions",
-      "Corporate wellness package",
-      "Monthly progress tracking",
+      { duration: "Daily", price: "₦40,000" },
+      { duration: "Weekly", price: "₦245,000" },
+      { duration: "Monthly", price: "₦265,000" },
+      { duration: "3 Months", price: "₦715,000" },
+      { duration: "6 Months", price: "₦1,470,000" },
+      { duration: "12 Months", price: "₦2,880,000" },
     ],
-    paystackLink: "#", // Replace with actual Paystack link
+    paystackLink: "#",
     popular: false,
+  },
+];
+
+const additionalServices = [
+  {
+    name: "Massage Chair",
+    options: [
+      { duration: "5 Minutes", price: "₦3,500" },
+      { duration: "10 Minutes", price: "₦5,000" },
+      { duration: "15 Minutes", price: "₦7,000" },
+      { duration: "20 Minutes", price: "₦8,000" },
+    ],
+  },
+  {
+    name: "Snooker",
+    options: [
+      { duration: "Per game", price: "₦1,000" },
+    ],
   },
 ];
 
@@ -67,14 +88,14 @@ const MembershipPlans = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Membership <span className="text-gold">Plans</span>
+            Kenora Fitness <span className="text-gold">Packages</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Choose the perfect plan for your fitness journey. All plans include full access to our premium facilities.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {plans.map((plan) => (
             <Card
               key={plan.name}
@@ -89,22 +110,21 @@ const MembershipPlans = () => {
               )}
               
               <CardHeader>
-                <CardTitle className="text-2xl font-bold">{plan.name}</CardTitle>
-                <CardDescription className="text-muted-foreground">
-                  {plan.description}
-                </CardDescription>
-                <div className="mt-4">
-                  <span className="text-4xl font-bold">{plan.price}</span>
-                  <span className="text-muted-foreground">/month</span>
+                <CardTitle className="text-xl font-bold">{plan.name}</CardTitle>
+                <div className="mt-3">
+                  <div className="text-2xl font-bold text-gold">{plan.registrationFee}</div>
+                  <CardDescription className="text-xs mt-1.5">
+                    {plan.description}
+                  </CardDescription>
                 </div>
               </CardHeader>
 
               <CardContent className="flex-grow">
-                <ul className="space-y-3">
-                  {plan.features.map((feature) => (
-                    <li key={feature} className="flex items-start gap-2">
-                      <Check className="text-gold mt-0.5 flex-shrink-0" size={20} />
-                      <span className="text-sm">{feature}</span>
+                <ul className="space-y-2.5">
+                  {plan.features.map((feature, idx) => (
+                    <li key={idx} className="flex justify-between items-center text-sm border-b border-border/50 pb-2 last:border-0">
+                      <span className="text-muted-foreground text-xs">{feature.duration}</span>
+                      <span className="font-semibold">{feature.price}</span>
                     </li>
                   ))}
                 </ul>
@@ -128,7 +148,33 @@ const MembershipPlans = () => {
           ))}
         </div>
 
-        <p className="text-center text-sm text-muted-foreground mt-8">
+        {/* Additional Services */}
+        <div className="mt-16">
+          <h3 className="text-3xl font-bold text-center mb-8">
+            Additional <span className="text-gold">Services</span>
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            {additionalServices.map((service) => (
+              <Card key={service.name} className="border-2 border-border hover:shadow-elegant transition-smooth">
+                <CardHeader>
+                  <CardTitle className="text-xl font-bold">{service.name}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-2.5">
+                    {service.options.map((option, idx) => (
+                      <li key={idx} className="flex justify-between items-center text-sm">
+                        <span className="text-muted-foreground text-xs">{option.duration}</span>
+                        <span className="font-semibold">{option.price}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        <p className="text-center text-sm text-muted-foreground mt-12">
           All payments are securely processed through Paystack. Membership begins immediately after payment confirmation.
         </p>
       </div>
